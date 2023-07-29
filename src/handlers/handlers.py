@@ -31,6 +31,8 @@ async def start_handler(msg: Message):
 
 
 @router.message(F.text == "Меню")
+@router.message(F.text == "Выйти в меню")
+@router.message(F.text == "◀️ Выйти в меню")
 async def menu(msg: Message):
     logger.info("menu")
     await msg.answer(text.menu, reply_markup=keyboards.menu)
