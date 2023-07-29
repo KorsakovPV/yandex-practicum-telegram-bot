@@ -1,5 +1,9 @@
-from aiogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
-                           KeyboardButton, ReplyKeyboardMarkup)
+from aiogram.types import (
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    KeyboardButton,
+    ReplyKeyboardMarkup,
+)
 
 menu = [
     [
@@ -18,9 +22,7 @@ menu = [
         InlineKeyboardButton(
             text="Разницу между SQL и NoSQL", callback_data="sql_or_nosql_differences"
         ),
-        InlineKeyboardButton(
-            text="История первой любви", callback_data="first_love"
-        ),
+        InlineKeyboardButton(text="История первой любви", callback_data="first_love"),
     ],
     [
         InlineKeyboardButton(text="Ссылка на github", callback_data="github_link"),
