@@ -19,12 +19,12 @@ menu = [
             text="Разницу между SQL и NoSQL", callback_data="sql_or_nosql_differences"
         ),
         InlineKeyboardButton(
-            text="История первой любви", callback_data="sql_or_nosql_differences"
+            text="История первой любви", callback_data="first_love"
         ),
     ],
     [
         InlineKeyboardButton(text="Ссылка на github", callback_data="github_link"),
-        InlineKeyboardButton(text="Ссылка на habr", callback_data="github_link"),
+        InlineKeyboardButton(text="Ссылка на habr", callback_data="habr_link"),
     ],
 ]
 menu = InlineKeyboardMarkup(inline_keyboard=menu)
