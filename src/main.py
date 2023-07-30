@@ -1,17 +1,15 @@
 import asyncio
 
-from aiogram import Bot, Dispatcher
-from aiogram.enums.parse_mode import ParseMode
+from aiogram import Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.utils.chat_action import ChatActionMiddleware
 
-from config.config import settings
-from config.logger import logger
+from config import bot
+from logger import logger
 from handlers.handlers import router, start_bot, stop_bot
 
 
 async def main():
-    bot = Bot(token=settings.BOT_TOKEN, parse_mode=ParseMode.HTML)
     dp = Dispatcher(storage=MemoryStorage())
     dp.startup.register(start_bot)
     dp.shutdown.register(stop_bot)

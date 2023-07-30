@@ -1,17 +1,10 @@
-FROM python:3.11.0
-
-ENV POETRY_VERSION=1.2.2
-
-# System deps:
-RUN pip install "poetry==$POETRY_VERSION"
+FROM python:3.10.6
 
 WORKDIR /code
-COPY poetry.lock pyproject.toml /code/
+COPY requirements.txt /code/
 
-# Project initialization:
-RUN poetry config virtualenvs.create false && poetry install --no-interaction --no-ansi
+RUN pip install -r requirements.txt
 
-# Creating folders, and files for a project:
 COPY . /code
 
 CMD ["python", "src/main.py"]

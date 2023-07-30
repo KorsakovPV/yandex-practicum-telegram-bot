@@ -1,0 +1,7 @@
+aiogram==3.0.0b8
+pydantic_settings==2.0.2
+speechkit==2.2.2
+numpy==1.25.1
+black==23.7.0
+isort==5.12.0
+flake8==6.1.0
