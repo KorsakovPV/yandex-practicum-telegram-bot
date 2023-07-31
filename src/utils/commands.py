@@ -99,4 +99,4 @@ def call_command(recognize_command: str):
         f"Command '{commands[0].command}'. "
         f"Levenshtein_distance={commands[0].levenshtein_distance}"
     )
-    return commands[0].fn
+    return commands[0]

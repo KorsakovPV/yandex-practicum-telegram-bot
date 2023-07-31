@@ -23,4 +23,6 @@ github_link = "https://github.com/KorsakovPV/yandex-practicum-telegram-bot"
 
 habr_link = "https://habr.com/ru/companies/beeline_cloud/articles/749580/"
 
-long_command = "Очень долгая команда."
+long_command = "Очень долгая команда. Попробуйте еше раз."
+
+unrecognized_command = "Команда не распознана. Попробуйте еше раз."

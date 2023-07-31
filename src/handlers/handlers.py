@@ -97,4 +97,8 @@ async def voice_message_handler(message: Message):
 
     command = commands.call_command(recognize_command)
 
-    await command(message)
+    if command.levenshtein_distance < 5:
+        await message.answer(text=text.unrecognized_command)
+        return
+
+    await command.fn(message)
