@@ -6,11 +6,11 @@ from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery, Message
 
-import text
 from config import bot, settings
 from logger import logger
 from utils import utils
 from utils.commands import commands
+from text import bot_answer
 
 
 async def start_bot(bot: Bot):
@@ -29,7 +29,7 @@ router = Router()
 @router.message(Command("start"))
 async def start_handler(message: Message):
     logger.info("start_handler")
-    await message.answer(text.greet.format(name=message.from_user.full_name))
+    await message.answer(bot_answer.greet.format(name=message.from_user.full_name))
     await commands.menu(message)
 
 
@@ -83,7 +83,7 @@ async def send_habr_link(clbck: CallbackQuery, state: FSMContext):
 @router.message(F.content_type == "voice")
 async def voice_message_handler(message: Message):
     if message.voice.duration > 5:
-        await message.answer(text=text.long_command)
+        await message.answer(text=bot_answer.long_command)
         return
     file_id = message.voice.file_id
     file = await bot.get_file(file_id)
@@ -100,7 +100,7 @@ async def voice_message_handler(message: Message):
 
     if command.levenshtein_distance > 3:
         logger.info("unrecognized_command")
-        await message.answer(text=text.unrecognized_command)
+        await message.answer(text=bot_answer.unrecognized_command)
         return
 
     await command.fn(message)

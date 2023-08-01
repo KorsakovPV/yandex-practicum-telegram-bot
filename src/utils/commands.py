@@ -1,8 +1,8 @@
 from aiogram.types import BufferedInputFile, FSInputFile, Message
 
-import text
 from keyboards import keyboards
 from logger import logger
+from text import bot_answer
 from utils import levenshtein, utils
 
 
@@ -55,7 +55,7 @@ class Commands:
     @staticmethod
     async def menu(message: Message):
         logger.info("menu")
-        await message.answer(text.menu, reply_markup=keyboards.menu)
+        await message.answer(bot_answer.menu, reply_markup=keyboards.menu)
 
     @staticmethod
     async def send_last_self_photo(message: Message):
@@ -75,10 +75,10 @@ class Commands:
         photo = FSInputFile("images/old_road.jpg")
         await message.answer_photo(
             photo=photo,
-            caption=text.my_hobby,
+            caption=bot_answer.my_hobby,
         )
         voice = BufferedInputFile(
-            file=utils.generate_voice(text.my_hobby), filename="voice.wav"
+            file=utils.generate_voice(bot_answer.my_hobby), filename="voice.wav"
         )
         await message.answer_voice(voice=voice)
 
@@ -103,12 +103,12 @@ class Commands:
     @staticmethod
     async def send_github_link(message: Message):
         logger.info("send_github_link")
-        await message.answer(text=text.github_link)
+        await message.answer(text=bot_answer.github_link)
 
     @staticmethod
     async def send_habr_link(message: Message):
         logger.info("send_github_link")
-        await message.answer(text=text.habr_link)
+        await message.answer(text=bot_answer.habr_link)
 
 
 commands = Commands()
