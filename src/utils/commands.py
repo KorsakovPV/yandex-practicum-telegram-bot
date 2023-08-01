@@ -21,7 +21,6 @@ class Command:
         )
 
 
-
 class Commands:
     def __init__(self):
         self.commands = [

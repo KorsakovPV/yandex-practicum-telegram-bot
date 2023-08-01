@@ -1,8 +1,5 @@
 from aiogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
                            KeyboardButton, ReplyKeyboardMarkup)
-from aiogram.utils.markdown import hlink
-
-from text import bot_answer
 
 menu = [
     [
