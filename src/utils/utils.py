@@ -11,8 +11,12 @@ def generate_voice(text: str) -> typing.BinaryIO:
     session = Session.from_yandex_passport_oauth_token(
         settings.OAUTH_TOKEN, settings.CATALOG_ID
     )
-    synthesizeAudio = SpeechSynthesis(session)
-    return synthesizeAudio.synthesize_stream(text=text, voice="ermil")  # voice='oksana'
+    synthesize_audio = SpeechSynthesis(session)
+    return synthesize_audio.synthesize_stream(
+        text=text,
+        voice="ermil",
+        # voice='oksana',
+    )
 
 
 def recognize_command(data: typing.BinaryIO) -> str:
@@ -20,5 +24,5 @@ def recognize_command(data: typing.BinaryIO) -> str:
     session = Session.from_yandex_passport_oauth_token(
         settings.OAUTH_TOKEN, settings.CATALOG_ID
     )
-    recognizeShortAudio = ShortAudioRecognition(session)
-    return recognizeShortAudio.recognize(data=data.read(), rawResults=True).lower()
+    recognize_short_audio = ShortAudioRecognition(session)
+    return recognize_short_audio.recognize(data=data.read(), rawResults=True).lower()

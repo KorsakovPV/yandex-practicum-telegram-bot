@@ -9,7 +9,8 @@ from aiogram.types import CallbackQuery, Message
 import text
 from config import bot, settings
 from logger import logger
-from utils import commands, utils
+from utils import utils
+from utils.commands import commands
 
 
 async def start_bot(bot: Bot):

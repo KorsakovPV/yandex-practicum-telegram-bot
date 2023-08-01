@@ -5,8 +5,8 @@ from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.utils.chat_action import ChatActionMiddleware
 
 from config import bot
-from logger import logger
 from handlers.handlers import router, start_bot, stop_bot
+from logger import logger
 
 
 async def main():
