@@ -15,6 +15,12 @@ class Command:
     def __gt__(self, other):
         return self.levenshtein_distance > other.levenshtein_distance
 
+    def comparison(self, recognize_command):
+        self.levenshtein_distance = levenshtein.levenshtein(
+            self.command, recognize_command
+        )
+
+
 
 class Commands:
     def __init__(self):
@@ -36,9 +42,7 @@ class Commands:
 
     def call_command(self, recognize_command: str):
         for command in self.commands:
-            command.levenshtein_distance = levenshtein.levenshtein(
-                command.command, recognize_command
-            )
+            command.comparison(recognize_command)
 
         self.commands.sort()
         logger.info(
